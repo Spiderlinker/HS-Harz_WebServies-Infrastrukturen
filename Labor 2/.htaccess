@@ -1,0 +1,11 @@
+# Turn rewrite engine on
+Options +FollowSymlinks
+RewriteEngine on
+
+# map neat URL to internal URL
+RewriteRule ^restws/list/?$ RestController.php?view=all [nc,qsa]
+RewriteRule ^restws/show/([0-9]+)/?$ RestController.php?view=single&id=$1 [nc,qsa]
+
+# Zugriffe auf die Filme werden an den RestController weitergeleitet
+RewriteRule ^restws/movies/list/?$ RestController.php?movies=all [nc,qsa]
+RewriteRule ^restws/movies/show/([0-9]+)/?$ RestController.php?movies=single&id=$1 [nc,qsa]
